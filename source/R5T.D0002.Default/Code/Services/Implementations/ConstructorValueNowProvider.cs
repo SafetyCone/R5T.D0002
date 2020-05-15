@@ -10,8 +10,8 @@ namespace R5T.D0002.Default
 
         public static ConstructorValueNowProvider NewFromLocalNow(DateTime localNow)
         {
-            var constantValueUtcNowProvider = new ConstructorValueNowProvider(localNow);
-            return constantValueUtcNowProvider;
+            var constantValueNowProvider = new ConstructorValueNowProvider(localNow);
+            return constantValueNowProvider;
         }
 
         /// <summary>
@@ -19,24 +19,24 @@ namespace R5T.D0002.Default
         /// </summary>
         public static ConstructorValueNowProvider New(DateTime now)
         {
-            var constantValueUtcNowProvider = ConstructorValueNowProvider.NewFromLocalNow(now);
-            return constantValueUtcNowProvider;
+            var constantValueNowProvider = ConstructorValueNowProvider.NewFromLocalNow(now);
+            return constantValueNowProvider;
         }
 
         public static ConstructorValueNowProvider NewFromUtcNow(DateTime utcNow)
         {
             var localNow = utcNow.ToLocalTime();
 
-            var constantValueUtcNowProvider = new ConstructorValueNowProvider(localNow);
-            return constantValueUtcNowProvider;
+            var constantValueNowProvider = new ConstructorValueNowProvider(localNow);
+            return constantValueNowProvider;
         }
 
         public static ConstructorValueNowProvider NewFromOffset(TimeSpan offset)
         {
             var offsetNow = DateTime.Now + offset;
 
-            var constantValueUtcNowProvider = ConstructorValueNowProvider.NewFromLocalNow(offsetNow);
-            return constantValueUtcNowProvider;
+            var constantValueNowProvider = ConstructorValueNowProvider.NewFromLocalNow(offsetNow);
+            return constantValueNowProvider;
         }
 
         #endregion
