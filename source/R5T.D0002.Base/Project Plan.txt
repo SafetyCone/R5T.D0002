@@ -1,0 +1,4 @@
+R5T.D0002.Base - An base INowProvider service definitions library.
+
+Goals
+
