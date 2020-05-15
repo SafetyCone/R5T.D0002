@@ -10,30 +10,30 @@ namespace R5T.D0002.Default
 
         public static OffsetNowProvider NewFromOffset(TimeSpan offset)
         {
-            var offsetUtcNowProvider = new OffsetNowProvider(offset);
-            return offsetUtcNowProvider;
+            var offsetNowProvider = new OffsetNowProvider(offset);
+            return offsetNowProvider;
         }
 
         public static OffsetNowProvider New(TimeSpan offset)
         {
-            var offsetUtcNowProvider = OffsetNowProvider.NewFromOffset(offset);
-            return offsetUtcNowProvider;
+            var offsetNowProvider = OffsetNowProvider.NewFromOffset(offset);
+            return offsetNowProvider;
         }
 
-        public static OffsetNowProvider NewFromDesiredUtcNow(DateTime desiredUtcNow)
+        public static OffsetNowProvider NewFromDesiredNowUtc(DateTime desiredNowUtc)
         {
-            var offset = DateTime.UtcNow - desiredUtcNow;
+            var offset = DateTime.UtcNow - desiredNowUtc;
 
-            var offsetUtcNowProvider = OffsetNowProvider.NewFromOffset(offset);
-            return offsetUtcNowProvider;
+            var offsetNowProvider = OffsetNowProvider.NewFromOffset(offset);
+            return offsetNowProvider;
         }
 
-        public static OffsetNowProvider NewFromDesiredLocalNow(DateTime desiredLocalNow)
+        public static OffsetNowProvider NewFromDesiredNowLocal(DateTime desiredNowLocal)
         {
-            var offset = DateTime.Now - desiredLocalNow;
+            var offset = DateTime.Now - desiredNowLocal;
 
-            var offsetUtcNowProvider = OffsetNowProvider.NewFromOffset(offset);
-            return offsetUtcNowProvider;
+            var offsetNowProvider = OffsetNowProvider.NewFromOffset(offset);
+            return offsetNowProvider;
         }
 
         #endregion
@@ -51,8 +51,8 @@ namespace R5T.D0002.Default
         {
             var now = DateTime.Now;
 
-            var offsetNow = now + this.Offset;
-            return Task.FromResult(offsetNow);
+            var nowOffset = now + this.Offset;
+            return Task.FromResult(nowOffset);
         }
     }
 }

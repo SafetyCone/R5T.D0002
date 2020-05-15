@@ -8,26 +8,26 @@ namespace R5T.D0002.Default
     {
         #region Static
 
-        public static ConstructorValueNowProvider NewFromLocalNow(DateTime localNow)
+        public static ConstructorValueNowProvider NewFromNowLocal(DateTime nowLocal)
         {
-            var constantValueNowProvider = new ConstructorValueNowProvider(localNow);
+            var constantValueNowProvider = new ConstructorValueNowProvider(nowLocal);
             return constantValueNowProvider;
         }
 
         /// <summary>
-        /// Uses the <see cref="ConstructorValueNowProvider.NewFromLocalNow(DateTime)"/> as the default.
+        /// Uses the <see cref="ConstructorValueNowProvider.NewFromNowLocal(DateTime)"/> as the default.
         /// </summary>
         public static ConstructorValueNowProvider New(DateTime now)
         {
-            var constantValueNowProvider = ConstructorValueNowProvider.NewFromLocalNow(now);
+            var constantValueNowProvider = ConstructorValueNowProvider.NewFromNowLocal(now);
             return constantValueNowProvider;
         }
 
-        public static ConstructorValueNowProvider NewFromUtcNow(DateTime utcNow)
+        public static ConstructorValueNowProvider NewFromNowUtc(DateTime nowUtc)
         {
-            var localNow = utcNow.ToLocalTime();
+            var nowLocal = nowUtc.ToLocalTime();
 
-            var constantValueNowProvider = new ConstructorValueNowProvider(localNow);
+            var constantValueNowProvider = new ConstructorValueNowProvider(nowLocal);
             return constantValueNowProvider;
         }
 
@@ -35,7 +35,7 @@ namespace R5T.D0002.Default
         {
             var offsetNow = DateTime.Now + offset;
 
-            var constantValueNowProvider = ConstructorValueNowProvider.NewFromLocalNow(offsetNow);
+            var constantValueNowProvider = ConstructorValueNowProvider.NewFromNowLocal(offsetNow);
             return constantValueNowProvider;
         }
 
