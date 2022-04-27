@@ -1,10 +1,10 @@
-﻿using System;
-using System.Threading.Tasks;
+using System;
+using System.Threading.Tasks;using R5T.T0064;
 
 
 namespace R5T.D0002.Default
-{
-    public class NowProvider : INowProvider
+{[ServiceImplementationMarker]
+    public class NowProvider : INowProvider,IServiceImplementation
     {
         public Task<DateTime> GetNowAsync()
         {

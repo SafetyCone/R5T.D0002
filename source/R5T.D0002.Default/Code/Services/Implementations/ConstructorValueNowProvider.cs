@@ -1,10 +1,13 @@
-﻿using System;
+using System;
 using System.Threading.Tasks;
+
+using R5T.T0064;
 
 
 namespace R5T.D0002.Default
 {
-    public class ConstructorValueNowProvider : INowProvider
+    [ServiceImplementationMarker]
+    public class ConstructorValueNowProvider : INowProvider, IServiceImplementation
     {
         #region Static
 
@@ -45,7 +48,8 @@ namespace R5T.D0002.Default
         private DateTime Now { get; }
 
 
-        public ConstructorValueNowProvider(DateTime now)
+        public ConstructorValueNowProvider(
+            [NotServiceComponent] DateTime now)
         {
             this.Now = now;
         }
